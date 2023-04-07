@@ -37,20 +37,20 @@ public class ConstrutorArvore {
 		if (!verificaRaizExiste()) {
 			raiz = new No(valor);
 			no = raiz;
-			System.out.println(raiz.numero);
+			System.out.println(raiz.getNumero());
 		} else {
-			if (valor < no.numero) {
-				if (no.noEsquerdo == null) {
-					no.noEsquerdo = new No(valor);
-					System.out.println(no.noEsquerdo.numero);
+			if (valor < no.getNumero()) {
+				if (no.getNoEsquerdo() == null) {
+					no.setNoEsquerdo(new No(valor));
+					System.out.println(no.getNoEsquerdo().getNumero());
 				} else {
-					inserirNo(valor, no.noEsquerdo);
+					inserirNo(valor, no.getNoEsquerdo());
 				}
 			} else {
-				if (no.noDireito == null) {
-					no.noDireito = new No(valor);
+				if (no.getNoDireito() == null) {
+					no.setNoDireito(new No(valor));
 				} else {
-					inserirNo(valor, no.noDireito);
+					inserirNo(valor, no.getNoDireito());
 				}
 			}
 		}
