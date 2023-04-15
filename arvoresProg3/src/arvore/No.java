@@ -45,5 +45,9 @@ public class No {
 		this.noDireito = noDireito;
 	}
 	
+	public String toString() {
+		return ""+numero;
+	}
+	
 	
 }

@@ -8,7 +8,7 @@ public class ConstrutorArvore {
 		raiz = null;
 	}
 
-	public boolean verificaRaizExiste() {		
+	public boolean verificaRaizExiste() {
 		return !(raiz == null);
 	}
 
@@ -16,48 +16,60 @@ public class ConstrutorArvore {
 		raiz = null;
 	}
 
-//	public int tamanho() {
-//		if(raiz.noEsquerdo == null && raiz.noDireito == null) {
-//			return raiz.altura;
-//		}
-//		
-//		
-//		return tamanho(raiz).altura;
-//	}
-//	
-//	private No tamanho(No no) {
-//		if(no.noEsquerdo == null  && no.noDireito == null) {
-//			return no;
-//		}
-//		
-//		return null;
-//	}
+	private int getAltura(No no) {
+		return no == null ? -1 : no.getAltura();
+	}
 
-	public void inserirNo(int valor, No no) {
-		if (!verificaRaizExiste()) {
-			raiz = new No(valor);
-			no = raiz;
-			System.out.println(raiz.getNumero());
-		} else {
-			if (valor < no.getNumero()) {
-				if (no.getNoEsquerdo() == null) {
-					no.setNoEsquerdo(new No(valor));
-					System.out.println(no.getNoEsquerdo().getNumero());
-				} else {
-					inserirNo(valor, no.getNoEsquerdo());
-				}
-			} else {
-				if (no.getNoDireito() == null) {
-					no.setNoDireito(new No(valor));
-				} else {
-					inserirNo(valor, no.getNoDireito());
-				}
+	private int getAlturaMaxima(int alturaEsquerda, int alturaDireita) {
+		return alturaEsquerda > alturaDireita ? alturaEsquerda : alturaDireita;
+	}
+	
+	private No rotacionarDireita(No noAtual) {
+		No noNovo = noAtual.getNoEsquerdo();
+		noAtual.setNoEsquerdo(noNovo.getNoDireito());
+		noNovo.setNoDireito(noAtual);
+		
+		noAtual.setAltura(getAlturaMaxima(getAltura(noAtual.getNoEsquerdo()), getAltura(noAtual.getNoDireito())) + 1);
+		noNovo.setAltura(getAlturaMaxima(getAltura(noNovo.getNoEsquerdo()), noAtual.getAltura()) + 1);
+		
+		return noNovo;
+	}
+	
+	private No rotacionarDuasVezesDireita(No noAtual) {
+
+		
+		
+		
+		return null;
+	}
+
+	public No inserirNo(int valor, No no) {
+		if (no == null) {
+			no = new No(valor);
+		} else if (valor < no.getNumero()) {
+			no.setNoEsquerdo(inserirNo(valor, no.getNoEsquerdo()));
+			if (getAltura(no.getNoEsquerdo()) - getAltura(no.getNoDireito()) == 2) {				
+				if (valor < no.getNoEsquerdo().getNumero())
+					no = rotacionarDireita(no);
+				else 
+					no = rotacionarDuasVezesDireita(no);
+					
 			}
+		} else if (valor > no.getNumero()) {
+			no.setNoDireito(inserirNo(valor, no.getNoDireito()));;
 		}
 
+		no.setAltura(getAlturaMaxima(getAltura(no.getNoEsquerdo()), getAltura(no.getNoDireito())) + 1);
+
+		return no;
+	}
+	
+	public void inserirNo(int valor) {
+		raiz = inserirNo(valor, raiz);
 	}
 
 	public No getRaiz() {
+		
 		return raiz;
 	}
 
