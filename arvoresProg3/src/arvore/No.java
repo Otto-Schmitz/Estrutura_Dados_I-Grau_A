@@ -11,6 +11,7 @@ public class No {
 	
 	public No(int numero) {
 		this.numero = numero;
+		this.altura = 1;
 	}
 
 	public int getNumero() {
