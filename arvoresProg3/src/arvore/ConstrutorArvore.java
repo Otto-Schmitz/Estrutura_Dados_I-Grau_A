@@ -34,13 +34,30 @@ public class ConstrutorArvore {
 		
 		return noNovo;
 	}
+
+	private No rotacionarEsquerda(No noAtual) {
+		No noNovo = noAtual.getNoDireito();
+		noAtual.setNoDireito(noNovo.getNoEsquerdo());
+		noNovo.setNoEsquerdo(noAtual);
+
+		noAtual.setAltura(getAlturaMaxima(getAltura(noAtual.getNoEsquerdo()), getAltura(noAtual.getNoDireito())) + 1);
+		noNovo.setAltura(getAlturaMaxima(getAltura(noNovo.getNoDireito()), noAtual.getAltura()) + 1);
+
+		return noNovo;
+	}
 	
 	private No rotacionarDuasVezesDireita(No noAtual) {
+		noAtual.setNoEsquerdo(rotacionarEsquerda(noAtual.getNoEsquerdo()));
+		return rotacionarDireita(noAtual);
+	}
 
-		
-		
-		
-		return null;
+	private No rotacionarDuasVezesEsquerda(No noAtual){
+		noAtual.setNoDireito(rotacionarDireita(noAtual.getNoDireito()));
+		return rotacionarEsquerda(noAtual);
+	}
+
+	private int diferencaAltura(No no){
+		return getAltura(no.getNoEsquerdo()) - getAltura(no.getNoDireito());
 	}
 
 	public No inserirNo(int valor, No no) {
@@ -48,15 +65,19 @@ public class ConstrutorArvore {
 			no = new No(valor);
 		} else if (valor < no.getNumero()) {
 			no.setNoEsquerdo(inserirNo(valor, no.getNoEsquerdo()));
-			if (getAltura(no.getNoEsquerdo()) - getAltura(no.getNoDireito()) == 2) {				
+			if (diferencaAltura(no) == 2) {
 				if (valor < no.getNoEsquerdo().getNumero())
 					no = rotacionarDireita(no);
 				else 
 					no = rotacionarDuasVezesDireita(no);
-					
 			}
 		} else if (valor > no.getNumero()) {
-			no.setNoDireito(inserirNo(valor, no.getNoDireito()));;
+			no.setNoDireito(inserirNo(valor, no.getNoDireito()));
+			if (diferencaAltura(no) == -2)
+				if(valor > no.getNoDireito().getNumero())
+					no = rotacionarEsquerda(no);
+				else
+					no = rotacionarDuasVezesEsquerda(no);
 		}
 
 		no.setAltura(getAlturaMaxima(getAltura(no.getNoEsquerdo()), getAltura(no.getNoDireito())) + 1);

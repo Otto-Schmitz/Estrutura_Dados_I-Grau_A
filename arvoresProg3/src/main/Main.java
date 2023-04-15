@@ -7,14 +7,15 @@ public class Main {
 	public static void main(String[] args) {
 		ConstrutorArvore arvore = new ConstrutorArvore();
 
-		arvore.inserirNo(30);
+		arvore.inserirNo(10);
+		arvore.inserirNo(8);
+		arvore.inserirNo(9);
 		arvore.inserirNo(20);
-		arvore.inserirNo(15);
-		arvore.inserirNo(11);
-		arvore.inserirNo(1);
-		arvore.inserirNo(0);
+		arvore.inserirNo(14);
+		arvore.inserirNo(3);
 		
-		System.out.println(arvore.getRaiz().getAltura());
+		
+		System.out.println(arvore.getRaiz().getNoEsquerdo());
 		
 	}
 
