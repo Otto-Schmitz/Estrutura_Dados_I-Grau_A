@@ -27,8 +27,8 @@ public class ConstrutorArvore {
         No subArvore = noNovo.getNoDireito();
 
         // Realiza a rotação
+        noAtual.setNoEsquerdo(noNovo.getNoDireito());
         noNovo.setNoDireito(noAtual);
-        noNovo.setNoEsquerdo(subArvore);
 
         // Atualiza as alturas
         noAtual.setAltura(Math.max(getAltura(noAtual.getNoEsquerdo()), getAltura(noAtual.getNoDireito())) + 1);
@@ -42,9 +42,9 @@ public class ConstrutorArvore {
         No subArvore = noNovo.getNoEsquerdo();
 
         // Realiza a rotação
-        noNovo.setNoEsquerdo(noAtual);
-        noAtual.setNoDireito(subArvore);
 
+		noAtual.setNoDireito(noNovo.getNoEsquerdo());
+		noNovo.setNoEsquerdo(noAtual);
         // Atualiza as alturas
         noAtual.setAltura(Math.max(getAltura(noAtual.getNoEsquerdo()), getAltura(noAtual.getNoDireito())) + 1);
         noNovo.setAltura(Math.max(getAltura(noNovo.getNoEsquerdo()), getAltura(noNovo.getNoDireito())) + 1);
