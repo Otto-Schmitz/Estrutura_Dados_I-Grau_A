@@ -176,7 +176,26 @@ public class ConstrutorArvore {
 	    return minimo;
 	}
 	
+	public No buscarNumero(int numero) {
+		return buscarNumeroAux(numero, this.raiz);
+	}
 	
+	private No buscarNumeroAux(int numero, No no) {
+		if(no == null) {
+			return no;
+		}
+		
+		if(numero < no.getNumero()) {
+			no = buscarNumeroAux(numero, no.getNoEsquerdo());
+		}
+		else if(numero > no.getNumero()) {
+			no = buscarNumeroAux(numero, no.getNoEsquerdo());
+		}
+		else if(numero != no.getNumero()) {
+			no = this.raiz;
+		}
+		return no;
+	}
 	
 	
 	
