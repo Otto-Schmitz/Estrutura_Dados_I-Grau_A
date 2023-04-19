@@ -31,7 +31,7 @@ public class Main {
 		arvore.inserir(10);
 		arvore.inserir(5);
 		
-		System.out.println(arvore.posOrdem());
+		System.out.println(arvore.emOrdem());
 
 	}
 

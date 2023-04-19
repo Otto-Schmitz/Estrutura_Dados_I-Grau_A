@@ -211,6 +211,19 @@ public class ConstrutorArvore {
 		}
 		return ordem;
 	}
+	
+	public ArrayList<Integer> emOrdem() {
+		return emOrdemAux(this.getRaiz(), new ArrayList<>());
+	}
+	
+	private ArrayList<Integer> emOrdemAux(No no, ArrayList<Integer> ordem) {
+		if(no != null) {
+			ordem = emOrdemAux(no.getNoEsquerdo(), ordem);
+			ordem.add(no.getNumero());
+			ordem = emOrdemAux(no.getNoDireito(), ordem);
+		}
+		return ordem;
+	} 
 
 	public No getRaiz() {
 		return raiz;
