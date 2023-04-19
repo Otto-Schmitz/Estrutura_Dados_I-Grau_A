@@ -1,5 +1,7 @@
 package arvore;
 
+import java.util.ArrayList;
+
 public class ConstrutorArvore {
 
 	private No raiz;
@@ -195,6 +197,19 @@ public class ConstrutorArvore {
 			no = this.raiz;
 		}
 		return no;
+	}
+	
+	public ArrayList<Integer> posOrdem() {
+		return posOrdemAux(this.raiz, new ArrayList<>());
+	}
+	
+	private ArrayList<Integer> posOrdemAux(No no, ArrayList<Integer> ordem) {
+		if(no != null) {
+			ordem = posOrdemAux(no.getNoEsquerdo(), ordem);
+			ordem = posOrdemAux(no.getNoDireito(), ordem);
+			ordem.add(no.getNumero());
+		}
+		return ordem;
 	}
 
 	public No getRaiz() {
