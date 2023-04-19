@@ -2,7 +2,7 @@ package arvore;
 
 public class ConstrutorArvore {
 
-	public No raiz;
+	private No raiz;
 
 	public ConstrutorArvore() {
 		raiz = null;
@@ -196,7 +196,9 @@ public class ConstrutorArvore {
 		}
 		return no;
 	}
-	
-	
+
+	public No getRaiz() {
+		return raiz;
+	}
 	
 }
