@@ -3,7 +3,6 @@ package arvoreConstrutor;
 import static org.junit.jupiter.api.Assertions.*;
 
 import arvore.ConstrutorArvore;
-import arvore.No;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;	
@@ -21,9 +20,7 @@ class ArvoreConstrutorTeste {
 	@Test
 	@DisplayName("Deve criar uma árvore balanceada corretamente")
 	void deveCriarUmaArvore() {
-		arvore.inserir(50);
-		arvore.inserir(25);
-		arvore.inserir(30);
+		arvorePequena();
 		
 		int raizExperada = 30;
 		int noEsquerdoExperado = 25;
@@ -55,6 +52,28 @@ class ArvoreConstrutorTeste {
 		int numeroNaoExistenteNaArvore = 38;
 		
 		assertNull(arvore.buscarNumero(numeroNaoExistenteNaArvore));
+	}
+	
+	@Test
+	@DisplayName("Deve incluir número corretamente")
+	void deveIncluirNumero() {
+		arvorePequena();
+		arvore.inserir(10);
+		arvore.inserir(5);
+		
+		int primeiroNumeroExperado = 10;
+		int segundoNumeroExperado = 5;
+		int primeiroNumeroAtual = arvore.buscarNumero(primeiroNumeroExperado).getNumero();
+		int segundoNumeroAtual = arvore.buscarNumero(segundoNumeroExperado).getNumero();
+		
+		assertEquals(primeiroNumeroExperado, primeiroNumeroAtual);
+		assertEquals(segundoNumeroExperado, segundoNumeroAtual);
+	}
+	
+	private void arvorePequena() {
+		arvore.inserir(50);
+		arvore.inserir(25);
+		arvore.inserir(30);
 	}
 	
 	private void arvoreCompleta() {
