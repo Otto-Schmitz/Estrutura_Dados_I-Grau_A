@@ -199,6 +199,19 @@ public class ConstrutorArvore {
 		return no;
 	}
 	
+	public ArrayList<Integer> preOrdem() {
+		return preOrdemAux(this.raiz, new ArrayList<>());
+	}
+	
+	private ArrayList<Integer> preOrdemAux(No no, ArrayList<Integer> ordem) {
+		if(no != null) {
+			ordem.add(no.getNumero());
+			ordem = preOrdemAux(no.getNoEsquerdo(), ordem);
+			ordem = preOrdemAux(no.getNoDireito(), ordem);
+		}
+		return ordem;
+	}
+	
 	public ArrayList<Integer> posOrdem() {
 		return posOrdemAux(this.raiz, new ArrayList<>());
 	}
@@ -224,7 +237,7 @@ public class ConstrutorArvore {
 		}
 		return ordem;
 	} 
-
+	
 	public No getRaiz() {
 		return raiz;
 	}

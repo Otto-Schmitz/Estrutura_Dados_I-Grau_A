@@ -15,22 +15,24 @@ public class Main {
 //		arvore.inserir(65);
 //		arvore.inserir(25);
 //		arvore.remover(65);
-		
+//		
 //		System.out.println(arvore.raiz.getNumero());
 //		System.out.println(arvore.raiz.getNoDireito());
 //		System.out.println(arvore.raiz.getNoEsquerdo());
 //		System.out.println(arvore.raiz.getNoEsquerdo().getNoEsquerdo());
 //		System.out.println(arvore.raiz.getNoDireito().getNoDireito());
 //		System.out.println(arvore.raiz.getNoDireito().getNoEsquerdo());
-		
+//		
 //		System.out.println(arvore.buscarNumero(30));
-		
+//		
 		arvore.inserir(50);
 		arvore.inserir(25);
 		arvore.inserir(30);
 		arvore.inserir(10);
 		arvore.inserir(5);
 		
+		System.out.println(arvore.preOrdem());
+		System.out.println(arvore.posOrdem());
 		System.out.println(arvore.emOrdem());
 
 	}
