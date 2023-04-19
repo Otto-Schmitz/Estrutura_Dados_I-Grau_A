@@ -2,6 +2,8 @@ package arvoreConstrutor;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import arvore.ConstrutorArvore;
 
 import org.junit.jupiter.api.Test;
@@ -68,6 +70,25 @@ class ArvoreConstrutorTeste {
 		
 		assertEquals(primeiroNumeroExperado, primeiroNumeroAtual);
 		assertEquals(segundoNumeroExperado, segundoNumeroAtual);
+	}
+	
+	@Test
+	@DisplayName("Deve retornar um arrayList com os os números de acordo com o percurso pré-ordem corretamente")
+	void deveOrdenarPreOrdem() {
+		arvoreCompleta();
+		
+		ArrayList<Integer> listaExperada = new ArrayList<>();
+		listaExperada.add(30);
+		listaExperada.add(10);
+		listaExperada.add(5);
+		listaExperada.add(25);
+		listaExperada.add(15);
+		listaExperada.add(50);
+		listaExperada.add(180);
+		ArrayList<Integer> listaAtual = arvore.preOrdem();
+		
+		assertTrue(listaExperada.equals(listaAtual));
+		
 	}
 	
 	private void arvorePequena() {
