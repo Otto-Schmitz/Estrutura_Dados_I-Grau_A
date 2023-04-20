@@ -31,13 +31,13 @@ public class Main {
 //		arvore.inserir(10);
 //		arvore.inserir(5);
 		
-		arvore.inserir(1);
-		arvore.inserir(2);
-		arvore.inserir(3);
-		arvore.inserir(4);
-		arvore.inserir(6);
-		arvore.inserir(7);
-		arvore.inserir(5);
+//		arvore.inserir(1);
+//		arvore.inserir(2);
+//		arvore.inserir(3);
+//		arvore.inserir(4);
+//		arvore.inserir(6);
+//		arvore.inserir(7);
+//		arvore.inserir(5);
 		
 		System.out.println(arvore.preOrdem());
 		System.out.println(arvore.posOrdem());

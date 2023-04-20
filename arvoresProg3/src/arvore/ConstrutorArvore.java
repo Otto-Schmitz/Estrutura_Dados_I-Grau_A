@@ -236,7 +236,7 @@ public class ConstrutorArvore {
 	
 	public ArrayList<Integer> porNivel() {
 		ArrayList<Integer> ordem = new ArrayList<>();
-		for(int i = 0; i <= this.raiz.getAltura(); i++) {
+		for(int i = 0; i <= getAltura(this.raiz); i++) {
 			ordem = porNivelAux(this.raiz, ordem, i);
 		}
 		return ordem;
@@ -255,10 +255,8 @@ public class ConstrutorArvore {
 		return ordem;
 	}
 	
-	public void teste() {
-		System.out.println(this.raiz.getAltura());
-		System.out.println(this.raiz.getNoEsquerdo().getAltura());
-		System.out.println(this.raiz.getNoEsquerdo().getNoEsquerdo().getAltura());
+	public void excluirArvore() {
+		this.raiz = null;
 	}
 	
 	public No getRaiz() {
