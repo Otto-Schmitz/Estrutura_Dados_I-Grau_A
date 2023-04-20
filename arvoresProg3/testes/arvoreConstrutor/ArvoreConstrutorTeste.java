@@ -91,6 +91,42 @@ class ArvoreConstrutorTeste {
 		
 	}
 	
+	@Test
+	@DisplayName("Deve retornar um arrayList com os números de acordo com o percurso pré-ordem corretamente")
+	void deveOrdenarPosOrdem() {
+		arvoreCompleta();
+	
+		ArrayList<Integer> listaExperada = new ArrayList<>();
+		listaExperada.add(5);
+		listaExperada.add(15);
+		listaExperada.add(25);
+		listaExperada.add(10);
+		listaExperada.add(180);
+		listaExperada.add(50);
+		listaExperada.add(30);
+		ArrayList<Integer> listaAtual = arvore.posOrdem();
+		
+		assertTrue(listaExperada.equals(listaAtual));
+	}
+	
+	@Test
+	@DisplayName("Deve retornar um arrayList com os números de acordo com o percurso em ordem corretamente")
+	void deveOrdenarEmOrdem() {
+		arvoreCompleta();
+		
+		ArrayList<Integer> listaExperada = new ArrayList<>();
+		listaExperada.add(5);
+		listaExperada.add(10);
+		listaExperada.add(15);
+		listaExperada.add(25);
+		listaExperada.add(30);
+		listaExperada.add(50);
+		listaExperada.add(180);
+		ArrayList<Integer> listaAtual = arvore.emOrdem();
+		
+		assertTrue(listaExperada.equals(listaAtual));
+	}
+	
 	private void arvorePequena() {
 		arvore.inserir(50);
 		arvore.inserir(25);
