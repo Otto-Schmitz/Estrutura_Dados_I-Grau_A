@@ -26,7 +26,6 @@ public class ConstrutorArvore {
 	
 	private No rotacionarDireita(No noAtual) {
         No noNovo = noAtual.getNoEsquerdo();
-        No subArvore = noNovo.getNoDireito();
 
         // Realiza a rotação
         noAtual.setNoEsquerdo(noNovo.getNoDireito());
@@ -41,7 +40,6 @@ public class ConstrutorArvore {
 	
 	private No rotacionarEsquerda(No noAtual) {
         No noNovo = noAtual.getNoDireito();
-        No subArvore = noNovo.getNoEsquerdo();
 
         // Realiza a rotação
 
@@ -170,12 +168,10 @@ public class ConstrutorArvore {
 	}
 
 	private int encontrarMinimo(No no) {
-	    int minimo = no.getNumero();
-	    while (no.getNoEsquerdo() != null) {
-	        minimo = no.getNoEsquerdo().getNumero();
-	        no = no.getNoEsquerdo();
+	    if(no.getNoEsquerdo() != null) {
+	    	return encontrarMinimo(no.getNoEsquerdo());
 	    }
-	    return minimo;
+	    return no.getNumero();
 	}
 	
 	public No buscarNumero(int numero) {
@@ -226,7 +222,7 @@ public class ConstrutorArvore {
 	}
 	
 	public ArrayList<Integer> emOrdem() {
-		return emOrdemAux(this.getRaiz(), new ArrayList<>());
+		return emOrdemAux(this.raiz, new ArrayList<>());
 	}
 	
 	private ArrayList<Integer> emOrdemAux(No no, ArrayList<Integer> ordem) {
@@ -237,6 +233,33 @@ public class ConstrutorArvore {
 		}
 		return ordem;
 	} 
+	
+	public ArrayList<Integer> porNivel() {
+		ArrayList<Integer> ordem = new ArrayList<>();
+		for(int i = 0; i <= this.raiz.getAltura(); i++) {
+			ordem = porNivelAux(this.raiz, ordem, i);
+		}
+		return ordem;
+	}
+	
+	private ArrayList<Integer> porNivelAux(No no, ArrayList<Integer> ordem, int nivel) {
+		if(no != null) {
+			if(nivel == 1) {
+				ordem.add(no.getNumero());
+			}
+			else if(nivel > 1) {
+				ordem = porNivelAux(no.getNoEsquerdo(), ordem, nivel - 1);
+				ordem = porNivelAux(no.getNoDireito(), ordem, nivel - 1);
+			}
+		}
+		return ordem;
+	}
+	
+	public void teste() {
+		System.out.println(this.raiz.getAltura());
+		System.out.println(this.raiz.getNoEsquerdo().getAltura());
+		System.out.println(this.raiz.getNoEsquerdo().getNoEsquerdo().getAltura());
+	}
 	
 	public No getRaiz() {
 		return raiz;

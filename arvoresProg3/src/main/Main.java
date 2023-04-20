@@ -25,15 +25,24 @@ public class Main {
 //		
 //		System.out.println(arvore.buscarNumero(30));
 //		
-		arvore.inserir(50);
-		arvore.inserir(25);
-		arvore.inserir(30);
-		arvore.inserir(10);
+//		arvore.inserir(50);
+//		arvore.inserir(25);
+//		arvore.inserir(30);
+//		arvore.inserir(10);
+//		arvore.inserir(5);
+		
+		arvore.inserir(1);
+		arvore.inserir(2);
+		arvore.inserir(3);
+		arvore.inserir(4);
+		arvore.inserir(6);
+		arvore.inserir(7);
 		arvore.inserir(5);
 		
 		System.out.println(arvore.preOrdem());
 		System.out.println(arvore.posOrdem());
 		System.out.println(arvore.emOrdem());
+		System.out.println(arvore.porNivel());
 
 	}
 
