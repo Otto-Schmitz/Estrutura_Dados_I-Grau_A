@@ -47,7 +47,7 @@ public class No {
 	}
 	
 	public String toString() {
-		return ""+numero;
+		return "["+ numero +"]";
 	}
 	
 	

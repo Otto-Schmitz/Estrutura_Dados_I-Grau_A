@@ -255,6 +255,28 @@ public class ConstrutorArvore {
 		return ordem;
 	}
 	
+	public void mostrarArvore() {
+		int tab = 1;
+		System.out.println("[RAIZ]---"+raiz.toString());
+		mostrarSubArvore(raiz.getNoEsquerdo(), tab, "ESQ");
+		mostrarSubArvore(raiz.getNoDireito(), tab, "DIR");
+	}
+	
+	public void mostrarSubArvore(No no, int tab, String lado) {
+		if (no != null) {
+			
+			String txt = "";
+			for(int i = 0; i < tab; i++) 
+				txt += "\t";
+			
+			
+			System.out.println(txt + "[" + lado + "]" + "---" + no.toString());
+			mostrarSubArvore(no.getNoEsquerdo(),tab + 1,"ESQ");
+			mostrarSubArvore(no.getNoDireito(),tab + 1,"DIR");
+		}
+	}
+
+	
 	public void excluirArvore() {
 		this.raiz = null;
 	}
