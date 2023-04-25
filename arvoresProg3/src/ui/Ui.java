@@ -9,14 +9,15 @@ public class Ui {
 	private ConstrutorArvore arvore = new ConstrutorArvore();
 
 	public void menu() {
+		System.out.println("0 - Arvore de Demonstracao");
 		System.out.println("1 - Inserir");
 		System.out.println("2 - Remover");
-		System.out.println("3 - Pré-ordem");
-		System.out.println("4 - Pós-ordem");
+		System.out.println("3 - Pre-ordem");
+		System.out.println("4 - Pos-ordem");
 		System.out.println("5 - Em ordem");
-		System.out.println("6 - Por nível");
-		System.out.println("7 - Excluir árvore");
-		System.out.println("8 - Mostrar árvore");
+		System.out.println("6 - Por nivel");
+		System.out.println("7 - Excluir Arvore");
+		System.out.println("8 - Mostrar Arvore");
 		System.out.println("9 - Sair");
 		menuAux(trataIntMenu());
 
@@ -24,7 +25,8 @@ public class Ui {
 
 	private void menuAux(int escolha) {
 		System.out.println();
-		switch (escolha) {
+		switch (escolha) { 
+		case 0 -> arvoreDemonstracao();
 		case 1 -> arvore.inserir(trataInt());
 		case 2 -> arvore.remover(trataInt());
 		case 3 -> System.out.println(arvore.preOrdem());
@@ -47,7 +49,7 @@ public class Ui {
 				System.out.print("Escolha um item da lista: ");
 				String escolhaAux = sc.nextLine();
 				int escolha = Integer.parseInt(escolhaAux);
-				if (escolha >= 1 && escolha <= 9) {
+				if (escolha >= 0 && escolha <= 9) {
 					return escolha;
 				}
 			} catch (Exception e) {
@@ -68,5 +70,16 @@ public class Ui {
 				System.out.print("Tente novamente");
 			}
 		}
+	}
+	
+	private void arvoreDemonstracao() {
+		arvore.inserir(50);
+		arvore.inserir(60);
+		arvore.inserir(40);
+		arvore.inserir(30);
+		arvore.inserir(45);
+		arvore.inserir(65);
+		arvore.inserir(25);
+		arvore.remover(65);
 	}
 }
