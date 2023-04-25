@@ -256,13 +256,17 @@ public class ConstrutorArvore {
 	}
 	
 	public void mostrarArvore() {
+		if(raiz == null) {
+			System.out.println("Raiz nula");
+			return;
+		}
 		int tab = 1;
 		System.out.println("[RAIZ]---"+raiz.toString());
 		mostrarSubArvore(raiz.getNoEsquerdo(), tab, "ESQ");
 		mostrarSubArvore(raiz.getNoDireito(), tab, "DIR");
 	}
 	
-	public void mostrarSubArvore(No no, int tab, String lado) {
+	private void mostrarSubArvore(No no, int tab, String lado) {
 		if (no != null) {
 			
 			String txt = "";

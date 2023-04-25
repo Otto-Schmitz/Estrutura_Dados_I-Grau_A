@@ -16,12 +16,13 @@ public class Ui {
 		System.out.println("5 - Em ordem");
 		System.out.println("6 - Por nível");
 		System.out.println("7 - Excluir árvore");
-		System.out.println("8 - Sair");
+		System.out.println("8 - Mostrar árvore");
+		System.out.println("9 - Sair");
 		menuAux(trataIntMenu());
 
 	}
 
-	public void menuAux(int escolha) {
+	private void menuAux(int escolha) {
 		System.out.println();
 		switch (escolha) {
 		case 1 -> arvore.inserir(trataInt());
@@ -31,7 +32,8 @@ public class Ui {
 		case 5 -> System.out.println(arvore.emOrdem());
 		case 6 -> System.out.println(arvore.porNivel());
 		case 7 -> arvore.excluirArvore();
-		case 8 -> System.out.println("Adeus");
+		case 8 -> arvore.mostrarArvore();
+		case 9 -> System.out.println("Adeus");
 
 		}
 		System.out.println();
@@ -39,7 +41,7 @@ public class Ui {
 			menu();
 	}
 
-	public int trataIntMenu() {
+	private int trataIntMenu() {
 		while (true) {
 			try {
 				System.out.print("Escolha um item da lista: ");
@@ -49,12 +51,12 @@ public class Ui {
 					return escolha;
 				}
 			} catch (Exception e) {
-				System.out.print("");
+				System.out.print("Tente novamente");
 			}
 		}
 	}
 
-	public int trataInt() {
+	private int trataInt() {
 		while (true) {
 			try {
 				System.out.print("Digite um valor: ");
@@ -63,7 +65,7 @@ public class Ui {
 				return escolha;
 
 			} catch (Exception e) {
-				System.out.print("");
+				System.out.print("Tente novamente");
 			}
 		}
 	}

@@ -1,11 +1,14 @@
 package main;
 
 import arvore.ConstrutorArvore;
+import ui.Ui;
 
 public class Main {
 
 	public static void main(String[] args) {
-		ConstrutorArvore arvore = new ConstrutorArvore();
+//		ConstrutorArvore arvore = new ConstrutorArvore();
+		Ui ui = new Ui();
+		ui.menu();
 		
 //		arvore.inserir(50);
 //		arvore.inserir(60);
@@ -16,18 +19,18 @@ public class Main {
 //		arvore.inserir(25);
 //		arvore.remover(65);
 //
-		arvore.inserir(50);
-		arvore.inserir(60);
-		arvore.inserir(40);
-		arvore.inserir(30);
-		arvore.inserir(45);
-		arvore.inserir(65);
-		arvore.inserir(25);
-		arvore.inserir(12);
-		arvore.inserir(22);
-		arvore.inserir(63);
-		arvore.inserir(21);
-		arvore.inserir(69);
+//		arvore.inserir(50);
+//		arvore.inserir(60);
+//		arvore.inserir(40);
+//		arvore.inserir(30);
+//		arvore.inserir(45);
+//		arvore.inserir(65);
+//		arvore.inserir(25);
+//		arvore.inserir(12);
+//		arvore.inserir(22);
+//		arvore.inserir(63);
+//		arvore.inserir(21);
+//		arvore.inserir(69);
 		
 //		System.out.println(arvore.raiz.getNumero());
 //		System.out.println(arvore.raiz.getNoDireito());
@@ -57,7 +60,7 @@ public class Main {
 //		System.out.println(arvore.emOrdem());
 //		System.out.println(arvore.porNivel());
 		
-		arvore.mostrarArvore();
+//		arvore.mostrarArvore();
 
 	}
 
