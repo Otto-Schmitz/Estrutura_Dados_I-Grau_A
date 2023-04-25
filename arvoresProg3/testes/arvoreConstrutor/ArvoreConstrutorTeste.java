@@ -127,6 +127,57 @@ class ArvoreConstrutorTeste {
 		assertTrue(listaExperada.equals(listaAtual));
 	}
 	
+	@Test
+	@DisplayName("Deve retornar um arrayList com os números de acordo com o percurso por nível corretamente")
+	void deveOrdenarPorNivel() {
+		arvoreCompleta();
+		
+		ArrayList<Integer> listaExperada = new ArrayList<>();
+		listaExperada.add(30);
+		listaExperada.add(10);
+		listaExperada.add(50);
+		listaExperada.add(5);
+		listaExperada.add(25);
+		listaExperada.add(180);
+		listaExperada.add(15);
+		ArrayList<Integer> listaAtual = arvore.porNivel();
+		
+		assertTrue(listaExperada.equals(listaAtual));
+	}
+	
+//	@Test
+//	@DisplayName("Deve retornar um arrayList com os números de acordo com o percurso por nível corretamente")
+	
+	@Test
+	@DisplayName("Deve retornar um arrayList vazio caso a árvore esteja vazia com o percurso pré-ordem")
+	void deveRetornarVazioPreOrdem() {
+		ArrayList<Integer> listaExperada = new ArrayList<>();
+		ArrayList<Integer> listaAtual = arvore.preOrdem();
+		
+		assertTrue(listaExperada.equals(listaAtual));
+	}
+	
+	@Test
+	@DisplayName("Deve retornar um arrayList vazio caso a árvore esteja vazia com o percurso pós-ordem")
+	void deveRetornarVazioPosOrdem() {
+		ArrayList<Integer> listaExperada = new ArrayList<>();
+		ArrayList<Integer> listaAtual = arvore.posOrdem();
+		
+		assertTrue(listaExperada.equals(listaAtual));
+	}
+	
+	@Test
+	@DisplayName("Deve retornar um arrayList vazio caso a árvore esteja vazia com o percurso em  ordem")
+	void deveRetornarVazioEmOrdem() {
+		ArrayList<Integer> listaExperada = new ArrayList<>();
+		ArrayList<Integer> listaAtual = arvore.emOrdem();
+		
+		assertTrue(listaExperada.equals(listaAtual));
+	}
+	
+//	@Test
+//	@DisplayName("Deve retornar um arrayList vazio caso a árvore esteja vazia com o percurso por nível")
+	
 	private void arvorePequena() {
 		arvore.inserir(50);
 		arvore.inserir(25);
