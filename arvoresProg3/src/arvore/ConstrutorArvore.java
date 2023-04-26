@@ -174,24 +174,25 @@ public class ConstrutorArvore {
 	    return no.getNumero();
 	}
 	
-	public No buscarNumero(int numero) {
-		return buscarNumeroAux(numero, this.raiz);
+	public boolean verificarNumero(int numero) {
+		return verificarNumeroAux(numero, this.raiz) != null;
 	}
 	
-	private No buscarNumeroAux(int numero, No no) {
+	private No verificarNumeroAux(int numero, No no) {
 		if(no == null) {
 			return no;
 		}
 		
 		if(numero < no.getNumero()) {
-			no = buscarNumeroAux(numero, no.getNoEsquerdo());
+			no = verificarNumeroAux(numero, no.getNoEsquerdo());
 		}
 		else if(numero > no.getNumero()) {
-			no = buscarNumeroAux(numero, no.getNoEsquerdo());
+			no = verificarNumeroAux(numero, no.getNoEsquerdo());
 		}
 		else if(numero != no.getNumero()) {
 			no = this.raiz;
 		}
+		System.out.println(no.getNumero());
 		return no;
 	}
 	

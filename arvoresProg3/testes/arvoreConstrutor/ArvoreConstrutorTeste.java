@@ -37,14 +37,17 @@ class ArvoreConstrutorTeste {
 	}
 	
 	@Test
-	@DisplayName("Deve buscar nó pelo número desejado que existe na árvore corretamente")
-	void deveBuscarNo() {
+	@DisplayName("Deve verificar nó pelo número desejado que existe na árvore corretamente")
+	void deveVerificarNo() {
 		arvoreCompleta();
 		
 		int numeroExperado = 5;
-		int noAtual = arvore.buscarNumero(numeroExperado).getNumero();
+		int numeroNaoExperado = 1000;
+		boolean esperado = arvore.verificarNumero(numeroExperado);
+		boolean naoEncontrado = arvore.verificarNumero(numeroNaoExperado);
 		
-		assertEquals(noAtual, noAtual);
+		assertTrue(esperado);
+		assertFalse(naoEncontrado);
 	}
 	
 	@Test
@@ -53,23 +56,26 @@ class ArvoreConstrutorTeste {
 		arvoreCompleta();
 		int numeroNaoExistenteNaArvore = 38;
 		
-		assertNull(arvore.buscarNumero(numeroNaoExistenteNaArvore));
+		boolean esperado = arvore.verificarNumero(numeroNaoExistenteNaArvore);
+		
+		assertFalse(esperado);
 	}
 	
 	@Test
 	@DisplayName("Deve incluir número corretamente")
 	void deveIncluirNumero() {
-		arvorePequena();
-		arvore.inserir(10);
-		arvore.inserir(5);
-		
 		int primeiroNumeroExperado = 10;
 		int segundoNumeroExperado = 5;
-		int primeiroNumeroAtual = arvore.buscarNumero(primeiroNumeroExperado).getNumero();
-		int segundoNumeroAtual = arvore.buscarNumero(segundoNumeroExperado).getNumero();
 		
-		assertEquals(primeiroNumeroExperado, primeiroNumeroAtual);
-		assertEquals(segundoNumeroExperado, segundoNumeroAtual);
+		arvorePequena();
+		arvore.inserir(primeiroNumeroExperado);
+		arvore.inserir(segundoNumeroExperado);
+		
+		boolean primeiroNumeroAtual = arvore.verificarNumero(primeiroNumeroExperado);
+		boolean segundoNumeroAtual = arvore.verificarNumero(segundoNumeroExperado);
+		
+		assertTrue(primeiroNumeroAtual);
+		assertTrue(segundoNumeroAtual);
 	}
 	
 	@Test

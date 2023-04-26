@@ -18,7 +18,8 @@ public class Ui {
 		System.out.println("6 - Por nivel");
 		System.out.println("7 - Excluir Arvore");
 		System.out.println("8 - Mostrar Arvore");
-		System.out.println("9 - Sair");
+		System.out.println("9 - Verificar Número");
+		System.out.println("10 - Sair");
 		menuAux(trataIntMenu());
 
 	}
@@ -35,11 +36,12 @@ public class Ui {
 		case 6 -> System.out.println(arvore.porNivel());
 		case 7 -> arvore.excluirArvore();
 		case 8 -> arvore.mostrarArvore();
-		case 9 -> System.out.println("Adeus");
+		case 9 -> System.out.println(arvore.verificarNumero(trataInt()));
+		case 10 -> System.out.println("Adeus");
 
 		}
 		System.out.println();
-		if (escolha != 9)
+		if (escolha != 10)
 			menu();
 	}
 
@@ -49,7 +51,7 @@ public class Ui {
 				System.out.print("Escolha um item da lista: ");
 				String escolhaAux = sc.nextLine();
 				int escolha = Integer.parseInt(escolhaAux);
-				if (escolha >= 0 && escolha <= 9) {
+				if (escolha >= 0 && escolha <= 10) {
 					return escolha;
 				}
 			} catch (Exception e) {

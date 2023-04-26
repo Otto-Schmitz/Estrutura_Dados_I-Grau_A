@@ -1,6 +1,5 @@
 package main;
 
-import arvore.ConstrutorArvore;
 import ui.Ui;
 
 public class Main {
