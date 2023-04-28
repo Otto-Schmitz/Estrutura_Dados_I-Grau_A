@@ -1,5 +1,15 @@
 # Implementação de árvore AVL
 
+## Estruturas Avançadas de Dados I - Grau A
+```
+Integrantes:
+
+Arthur Palma,
+Caua Festa,
+Otto Schmitz,
+Thomaz Justo.
+```
+
 ## Recursos
 
 ### 0 - Árvore de Demonstração:
@@ -23,7 +33,7 @@ Insira números na árvore AVL. Após informar algum número <b>VÁLIDO</b> na �
 
 ### 2 - Remover:
 
-Revmova números da árvore AVL. Após informar algum número <b>VÁLIDO</b>, caso seja encontrado, ele será removido da árvore e a mesma se balanceará automaticamente caso seja necessário. 
+Revmova números da árvore AVL. Após informar algum número <b>VÁLIDO</b>, caso seja encontrado, ele será removido da árvore e a mesma se balanceará automaticamente caso seja necessário.
 
 ### 3 - Percurso Pré-Ordem:
 
