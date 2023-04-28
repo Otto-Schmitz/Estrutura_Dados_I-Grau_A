@@ -4,10 +4,10 @@
 ```
 Integrantes:
 
-Arthur Palma,
-Caua Festa,
-Otto Schmitz,
-Thomaz Justo.
+	Arthur Palma,
+	Caua Festa,
+	Otto Schmitz,
+	Thomaz Justo.
 ```
 
 ## Recursos
