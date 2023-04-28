@@ -151,9 +151,6 @@ class ArvoreConstrutorTeste {
 		assertTrue(listaExperada.equals(listaAtual));
 	}
 	
-//	@Test
-//	@DisplayName("Deve retornar um arrayList com os números de acordo com o percurso por nível corretamente")
-	
 	@Test
 	@DisplayName("Deve retornar um arrayList vazio caso a árvore esteja vazia com o percurso pré-ordem")
 	void deveRetornarVazioPreOrdem() {
