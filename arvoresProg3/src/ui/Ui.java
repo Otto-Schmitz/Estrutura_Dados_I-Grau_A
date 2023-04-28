@@ -9,6 +9,7 @@ public class Ui {
 	private ConstrutorArvore arvore = new ConstrutorArvore();
 
 	public void menu() {
+		System.out.println("ARVORE AVL - ESTRUTURAS AVANCADAS DE DADOS I\n");
 		System.out.println("0 - Arvore de Demonstracao");
 		System.out.println("1 - Inserir");
 		System.out.println("2 - Remover");
@@ -19,7 +20,7 @@ public class Ui {
 		System.out.println("7 - Excluir Arvore");
 		System.out.println("8 - Mostrar Arvore");
 		System.out.println("9 - Verificar Número");
-		System.out.println("10 - Sair");
+		System.out.println("10 - Sair\n");
 		menuAux(trataIntMenu());
 
 	}
@@ -36,7 +37,10 @@ public class Ui {
 		case 6 -> System.out.println(arvore.porNivel());
 		case 7 -> arvore.excluirArvore();
 		case 8 -> arvore.mostrarArvore();
-		case 9 -> System.out.println(arvore.verificarNumero(trataInt()));
+		case 9 -> {
+			int inteiro = trataInt();
+			System.out.println(arvore.verificarNumero(inteiro) ? inteiro + " existe na arvore" : inteiro + " nao existe na arvore");
+		}
 		case 10 -> System.out.println("Adeus");
 
 		}

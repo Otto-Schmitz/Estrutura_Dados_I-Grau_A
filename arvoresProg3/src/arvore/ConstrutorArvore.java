@@ -192,7 +192,6 @@ public class ConstrutorArvore {
 		else if(numero != no.getNumero()) {
 			no = this.raiz;
 		}
-		System.out.println(no.getNumero());
 		return no;
 	}
 	
