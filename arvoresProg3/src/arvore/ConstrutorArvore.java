@@ -27,11 +27,9 @@ public class ConstrutorArvore {
 	private No rotacionarDireita(No noAtual) {
         No noNovo = noAtual.getNoEsquerdo();
 
-        // Realiza a rotação
         noAtual.setNoEsquerdo(noNovo.getNoDireito());
         noNovo.setNoDireito(noAtual);
 
-        // Atualiza as alturas
         noAtual.setAltura(Math.max(getAltura(noAtual.getNoEsquerdo()), getAltura(noAtual.getNoDireito())) + 1);
         noNovo.setAltura(Math.max(getAltura(noNovo.getNoEsquerdo()), getAltura(noNovo.getNoDireito())) + 1);
 
@@ -41,11 +39,9 @@ public class ConstrutorArvore {
 	private No rotacionarEsquerda(No noAtual) {
         No noNovo = noAtual.getNoDireito();
 
-        // Realiza a rotação
-
 		noAtual.setNoDireito(noNovo.getNoEsquerdo());
 		noNovo.setNoEsquerdo(noAtual);
-        // Atualiza as alturas
+
         noAtual.setAltura(Math.max(getAltura(noAtual.getNoEsquerdo()), getAltura(noAtual.getNoDireito())) + 1);
         noNovo.setAltura(Math.max(getAltura(noNovo.getNoEsquerdo()), getAltura(noNovo.getNoDireito())) + 1);
 
@@ -71,10 +67,8 @@ public class ConstrutorArvore {
 			return no;
 		}
 		
-        // Atualiza a altura do nó atual
         no.setAltura(1 + Math.max(getAltura(no.getNoEsquerdo()), getAltura(no.getNoDireito())));
 
-        // Verifica o balanceamento do nó atual e realiza rotações se necessário
         int balanceamento = calcularBalanceamento(no);
         if (balanceamento > 1) {
             if (valor < no.getNoEsquerdo().getNumero()) {
@@ -104,7 +98,7 @@ public class ConstrutorArvore {
 	
 	private No removerAux(No no, int valor) {
 	    if (no == null) {
-	        return no; // Valor não encontrado na árvore
+	        return no;
 	    }
 
 	    if (valor < no.getNumero()) {
@@ -112,22 +106,17 @@ public class ConstrutorArvore {
 	    } else if (valor > no.getNumero()) {
 	        no.setNoDireito(removerAux(no.getNoDireito(), valor));;
 	    } else {
-	        // Valor encontrado, realiza a remoção
 	        if (no.getNoEsquerdo() == null || no.getNoDireito() == null) {
 	            No filho = (no.getNoEsquerdo() != null) ? no.getNoEsquerdo() : no.getNoDireito();
 
 	            if (filho == null) {
-	                // Nó folha, simplesmente remove
 	                no = null;
 	            } else {
-	                // Nó com um único filho, substitui pelo filho
 	                no = filho;
 	            }
 	        } else {
-	            // Nó com dois filhos, encontra o sucessor in-order
 	            no.setNumero(encontrarMinimo(no.getNoDireito()));
 
-	            // Remove o sucessor in-order do subárvore direita
 	            no.setNoDireito(removerAux(no.getNoDireito(), no.getNumero()));
 	        }
 	    }
@@ -136,10 +125,8 @@ public class ConstrutorArvore {
 	        return no;
 	    }
 
-	    // Atualiza a altura do nó atual
 	    no.setAltura(1 + Math.max(getAltura(no.getNoEsquerdo()), getAltura(no.getNoDireito())));
 
-	    // Verifica o balanceamento do nó atual e realiza rotações se necessário
 	    int balanceamento = calcularBalanceamento(no);
 
 	    if (balanceamento > 1) {
@@ -272,7 +259,6 @@ public class ConstrutorArvore {
 			String txt = "";
 			for(int i = 0; i < tab; i++) 
 				txt += "\t";
-			
 			
 			System.out.println(txt + "[" + lado + "]" + "---" + no.toString());
 			mostrarSubArvore(no.getNoEsquerdo(),tab + 1,"ESQ");
