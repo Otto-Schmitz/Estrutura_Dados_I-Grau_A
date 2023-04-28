@@ -181,8 +181,14 @@ class ArvoreConstrutorTeste {
 		assertTrue(listaExperada.equals(listaAtual));
 	}
 	
-//	@Test
-//	@DisplayName("Deve retornar um arrayList vazio caso a árvore esteja vazia com o percurso por nível")
+	@Test
+	@DisplayName("Deve retornar um arrayList vazio caso a árvore esteja vazia com o percurso por nível")
+	void deveRetornarVazioPorNivel() {
+		ArrayList<Integer> listaExperada = new ArrayList<>();
+		ArrayList<Integer> listaAtual = arvore.porNivel();
+		
+		assertTrue(listaExperada.equals(listaAtual));
+	}
 	
 	private void arvorePequena() {
 		arvore.inserir(50);
