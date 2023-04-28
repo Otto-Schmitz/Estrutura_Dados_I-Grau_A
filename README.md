@@ -2,7 +2,7 @@
 
 ## Estruturas Avançadas de Dados I - Grau A
 ```
-Integrantes:
+	Integrantes:
 
 	Arthur Palma,
 	Caua Festa,
