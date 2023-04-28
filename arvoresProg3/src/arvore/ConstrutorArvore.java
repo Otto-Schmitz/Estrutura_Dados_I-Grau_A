@@ -187,7 +187,7 @@ public class ConstrutorArvore {
 			no = verificarNumeroAux(numero, no.getNoEsquerdo());
 		}
 		else if(numero > no.getNumero()) {
-			no = verificarNumeroAux(numero, no.getNoEsquerdo());
+			no = verificarNumeroAux(numero, no.getNoDireito());
 		}
 		else if(numero != no.getNumero()) {
 			no = this.raiz;
